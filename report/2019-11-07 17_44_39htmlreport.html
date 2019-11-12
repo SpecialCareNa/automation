@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+    font-size: 16pt;
+    color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+    }
+    a.popup_link:hover {
+        color: red;
+    }
+    .popup_window {
+        display: none;
+        position: relative;
+        left: 0px;
+        top: 0px;
+        /*border: solid #627173 1px; */
+        padding: 10px;
+        background-color: #E6E6D6;
+        font-family: "Lucida Console", "Courier New", Courier, monospace;
+        text-align: left;
+        font-size: 8pt;
+        width: 500px;
+    }
+    }
+    /* -- report ------------------------------------------------------------------------ */
+    #show_detail_line {
+        margin-top: 3ex;
+        margin-bottom: 1ex;
+    }
+    #result_table {
+        width: 80%;
+        border-collapse: collapse;
+        border: 1px solid #777;
+    }
+    #header_row {
+        font-weight: bold;
+        color: white;
+        background-color: #777;
+    }
+    #result_table td {
+        border: 1px solid #777;
+        padding: 2px;
+    }
+    #total_row  { font-weight: bold; }
+    .passClass  { background-color: #6c6; }
+    .failClass  { background-color: #c60; }
+    .errorClass { background-color: #c00; }
+    .passCase   { color: #6c6; }
+    .failCase   { color: #c60; font-weight: bold; }
+    .errorCase  { color: #c00; font-weight: bold; }
+    .hiddenRow  { display: none; }
+    .testcase   { margin-left: 2em; }
+    /* -- ending ---------------------------------------------------------------------- */
+    #ending {
+    }
+    </style>
+    
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&');
+    s = s.replace(/</g,'<');
+    s = s.replace(/>/g,'>');
+    return s;
+}
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+<div class='heading'>
+    <h1>report</h1>
+    <p class='attribute'><strong>执行开始时间:</strong> 2019-11-07 17:44:39</p>
+    <p class='attribute'><strong>执行用时:</strong> 0:00:00.612067</p>
+    <p class='attribute'><strong>执行状态:</strong> 通过数 3 失败数 1</p>
+    
+    <p class='description'></p>
+    </div>
+    
+
+    <p id='show_detail_line'>展示方式
+    <a href='javascript:showCase(0)'>概览</a>
+    <a href='javascript:showCase(1)'>失败</a>
+    <a href='javascript:showCase(2)'>全部</a>
+    </p>
+    <table id='result_table'>
+    <colgroup>
+    <col align='left' />
+    <col align='right' />
+    <col align='right' />
+    <col align='right' />
+    <col align='right' />
+    <col align='right' />
+    </colgroup>
+    <tr id='header_row'>
+        <td>测试集群/测试用例</td>
+        <td>数量</td>
+        <td>通过</td>
+        <td>失败</td>
+        <td>报错</td>
+        <td>查看</td>
+    </tr>
+    
+    <tr class='failClass'>
+        <td>TestMethod</td>
+        <td>4</td>
+        <td>3</td>
+        <td>1</td>
+        <td>0</td>
+        <td><a href="javascript:showClassDetail('c1',4)">详情</a></td>
+    </tr>
+    
+    <tr id='pt1.1' class='hiddenRow'>
+        <td class='none'><div class='testcase'>test_01</div></td>
+        <td colspan='5' align='center'>
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+            通过</a>
+        <div id='div_pt1.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+    pt1.1: {'data': {'data': [{'update_time': None, 'publish_time': None, 'create_user__name': 'admin', 'description': '', 'is_current_user': True, 'name': '5', 'update_user__name': None, 'create_time': '2019-11-07 11:28:22', 'all_os_version': 'centos 7.4', 'create_user_id': 1, 'is_published': False, 'id': 139, 'uuid': 'd465b1e2-d5e8-4702-8aef-a61fcec9594a'}, {'update_time': None, 'publish_time': None, 'create_user__name': 'admin', 'description': '', 'is_current_user': True, 'name': '2', 'update_user__name': None, 'create_time': '2019-11-07 10:56:30', 'all_os_version': 'centos 7.4', 'create_user_id': 1, 'is_published': False, 'id': 138, 'uuid': '5f2e2e6d-932b-47ce-8172-234bd80a1fc2'}, {'update_time': None, 'publish_time': None, 'create_user__name': 'admin', 'description': '', 'is_current_user': True, 'name': '1', 'update_user__name': None, 'create_time': '2019-11-07 10:54:47', 'all_os_version': 'centos 7.4', 'create_user_id': 1, 'is_published': False, 'id': 137, 'uuid': '26e756ef-e5ae-4571-934d-ce964a0c40cd'}, {'update_time': None, 'publish_time': '2019-11-05 11:23:11', 'create_user__name': 'admin', 'description': '', 'is_current_user': True, 'name': 'sglr', 'update_user__name': None, 'create_time': '2019-11-05 11:22:32', 'all_os_version': 'centos 7.4', 'create_user_id': 1, 'is_published': True, 'id': 136, 'uuid': '17278216-34fd-4c41-9f00-2bb4aadd71b3'}, {'update_time': '2019-10-30 11:29:45', 'publish_time': '2019-10-29 17:31:21', 'create_user__name': 'admin', 'description': '', 'is_current_user': True, 'name': 'db2-v11-install', 'update_user__name': 'admin', 'create_time': '2019-08-27 14:10:13', 'all_os_version': 'rhel 7.5', 'create_user_id': 1, 'is_published': True, 'id': 134, 'uuid': '2b4fdfa5-1b99-413a-a4fa-4640257a1b85'}, {'update_time': None, 'publish_time': None, 'create_user__name': 'admin', 'description': '', 'is_current_user': True, 'name': 'lijintest1', 'update_user__name': None, 'create_time': '2019-08-22 16:40:34', 'all_os_version': 'rhel 7.5', 'create_user_id': 1, 'is_published': False, 'id': 133, 'uuid': '578df2a7-b39a-4340-90f9-98cdc71b5542'}, {'update_time': None, 'publish_time': None, 'create_user__name': 'admin', 'description': '', 'is_current_user': True, 'name': 'auto_config_agent_file_pre', 'update_user__name': None, 'create_time': '2019-08-09 14:59:39', 'all_os_version': 'rhel 7.5', 'create_user_id': 1, 'is_published': False, 'id': 132, 'uuid': '624bab60-97a2-4b58-bee1-8f9dc2249e64'}, {'update_time': None, 'publish_time': None, 'create_user__name': 'admin', 'description': '', 'is_current_user': True, 'name': 'auto_config_agent_file', 'update_user__name': None, 'create_time': '2019-08-09 14:59:07', 'all_os_version': 'rhel 7.5', 'create_user_id': 1, 'is_published': False, 'id': 131, 'uuid': '89c64f5a-10bc-4586-8850-281c89190e9d'}, {'update_time': '2019-08-28 17:52:42', 'publish_time': None, 'create_user__name': 'admin', 'description': '', 'is_current_user': True, 'name': 'wasliberty_install3', 'update_user__name': 'admin', 'create_time': '2019-07-17 17:58:05', 'all_os_version': 'rhel 7.5', 'create_user_id': 1, 'is_published': False, 'id': 130, 'uuid': '7c5a777e-f85b-4591-b99b-cfe32ee3ac97'}, {'update_time': '2019-08-28 17:52:31', 'publish_time': None, 'create_user__name': 'admin', 'description': '', 'is_current_user': True, 'name': 'wasliberty_install2', 'update_user__name': 'admin', 'create_time': '2019-07-17 17:46:20', 'all_os_version': 'rhel 7.5', 'create_user_id': 1, 'is_published': False, 'id': 129, 'uuid': 'de18e295-7fa3-4e69-8c6c-48650e02489b'}], 'page': '&lt;div class="pull-right" style="margin: 20px 20px 35px 0"&gt;\n    &lt;div class="pagination-info"&gt;\n        &lt;span&gt;共52条&lt;/span&gt;，\n        &lt;span class="ng-binding ng-hide "&gt;每页显示\n            &lt;select name="paginator_per_page_modal" data-page-index="1" class="ng-pristine ng-valid custom-pages"&gt;\n                &lt;option value="10"  selected="selected" &gt;10&lt;/option&gt;\n                &lt;option value="20" &gt;20&lt;/option&gt;\n                &lt;option value="50" &gt;50&lt;/option&gt;\n                &lt;option value="100" &gt;100&lt;/option&gt;\n            &lt;/select&gt;&amp;nbsp;条&lt;/span&gt;\n    &lt;/div&gt;\n    \n    &lt;ul class="pagination"&gt;\n         \n        &lt;!-- 页码 --&gt;\n         \n        &lt;!-- 选中 --&gt;\n        \n        &lt;li class="active"&gt;\n            &lt;a data-index="1"&gt;1&lt;/a&gt;\n        &lt;/li&gt;\n        \n        &lt;!-- 结束 --&gt;\n         \n        &lt;!-- 选中 --&gt;\n        \n        &lt;li&gt;\n            &lt;a data-a="1" data-index="2"&gt;2&lt;/a&gt;\n        &lt;/li&gt;\n        \n        &lt;!-- 结束 --&gt;\n         \n        &lt;!-- 选中 --&gt;\n        \n        &lt;li&gt;\n            &lt;a data-a="1" data-index="3"&gt;3&lt;/a&gt;\n        &lt;/li&gt;\n        \n        &lt;!-- 结束 --&gt;\n        \n        &lt;!-- 下一页码 --&gt;\n        \n        &lt;li&gt;\n            &lt;a data-a="1" data-index="2" aria-label="Next"&gt;\n                &lt;span aria-hidden="true"&gt;›&lt;/span&gt;\n            &lt;/a&gt;\n        &lt;/li&gt;\n        &lt;li&gt;\n            &lt;a data-a="1" data-index="6"  aria-label="Next"&gt;\n                &lt;span aria-hidden="true"&gt;&amp;raquo;&lt;/span&gt;\n            &lt;/a&gt;\n        &lt;/li&gt;\n        \n    &lt;/ul&gt;\n    \n&lt;/div&gt;\n'}, 'success': True}
+
+    
+            </pre>
+        </div>
+        <!--css div popup end-->
+        </td>
+    </tr>
+    
+    <tr id='ft1.2' class='none'>
+        <td class='failCase'><div class='testcase'>test_02</div></td>
+        <td colspan='5' align='center'>
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+            失败</a>
+        <div id='div_ft1.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+    ft1.2: Traceback (most recent call last):
+  File "C:/Users/Administrator/PycharmProjects/requests/base/TestMethod.py", line 71, in test_02
+    }, "测试失败")
+AssertionError: {'upd[271 chars]: 139, 'uuid': 'd465b1e2-d5e8-4702-8aef-a61fcec9594a'} != {'upd[271 chars]: 139000000000, 'uuid': 'd465b1e2-d5e8-4702-8aef-a61fcec9594a'}
+  {'all_os_version': 'centos 7.4',
+   'create_time': '2019-11-07 11:28:22',
+   'create_user__name': 'admin',
+   'create_user_id': 1,
+   'description': '',
+-  'id': 139,
++  'id': 139000000000,
+   'is_current_user': True,
+   'is_published': False,
+   'name': '5',
+   'publish_time': None,
+   'update_time': None,
+   'update_user__name': None,
+   'uuid': 'd465b1e2-d5e8-4702-8aef-a61fcec9594a'} : 测试失败
+
+    
+            </pre>
+        </div>
+        <!--css div popup end-->
+        </td>
+    </tr>
+    
+    <tr id='pt1.3' class='hiddenRow'>
+        <td class='none'><div class='testcase'>test_03</div></td>
+        <td colspan='5' align='center'>
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+            通过</a>
+        <div id='div_pt1.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+    pt1.3: {'data': {'is_create': False}, 'success': True}
+
+    
+            </pre>
+        </div>
+        <!--css div popup end-->
+        </td>
+    </tr>
+    
+    <tr id='pt1.4' class='hiddenRow'>
+        <td class='none'><div class='testcase'>test_04</div></td>
+        <td colspan='5' align='center'>
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+            通过</a>
+        <div id='div_pt1.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+    pt1.4: {'data': {'is_create': False}, 'success': True}
+
+    
+            </pre>
+        </div>
+        <!--css div popup end-->
+        </td>
+    </tr>
+    
+    <tr id='total_row'>
+        <td>总计</td>
+        <td>4</td>
+        <td>3</td>
+        <td>1</td>
+        <td>0</td>
+        <td> </td>
+    </tr>
+    </table>
+    
+<div id='ending'> </div>
+</body>
+</html>
